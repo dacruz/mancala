@@ -30,7 +30,7 @@ for i in {1..1000}; do
     n=`od -An -N1 -i /dev/random`; 
     n=$((n/25.5/2)); 
     echo $n | cut -d "." -f1; 
-done | ./client.sh http://{server_host}:8080
+done | ./client.sh http://mancala.poiuytre.nl
 ```
 
 
