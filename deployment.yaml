@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mancala-deployment
+  labels:
+    app: mancala
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mancala
+  template:
+    metadata:
+      labels:
+        app: mancala
+    spec:
+      containers:
+      - name: mancala
+        image: registry.poiuytre.nl/mancala-server:1.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+        envFrom:
+          - configMapRef:
+              name: mancala-config  
+      
+        
